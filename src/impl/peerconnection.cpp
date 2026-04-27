@@ -625,7 +625,7 @@ void PeerConnection::dispatchMedia([[maybe_unused]] message_ptr message) {
 						if (remb->hasValidId())
 							for (int i = 0; i < remb->getSSRCCount(); ++i)
 								ssrcs.insert(remb->getSSRC(i));
-					}	else if (header->payloadType() == 206 && rtcpfb->header.reportCount() == 4 &&
+					} else if (header->payloadType() == 206 && rtcpfb->header.reportCount() == 4 &&
 						length == (sizeof(RtcpFbHeader) + sizeof(RtcpFirPart))) {
 						// RFC 5104 FIR (PT=206, FMT=4): the target SSRC is inside the FCI payload
 						auto fir = reinterpret_cast<const RtcpFir *>(header);
